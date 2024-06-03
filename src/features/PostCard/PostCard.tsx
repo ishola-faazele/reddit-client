@@ -1,7 +1,7 @@
 // src/components/PostCard.tsx
 import React from 'react';
 import { Post } from '../posts/postsSlice';
-import { FaArrowUp, FaArrowDown, FaCommentAlt, FaShare } from 'react-icons/fa';
+import { FaArrowUp, FaArrowDown, FaCommentAlt } from 'react-icons/fa';
 import ShareButton from '../ShareButton/ShareBtn';
 
 interface PostCardProps {

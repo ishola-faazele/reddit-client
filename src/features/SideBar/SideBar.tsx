@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHome, FaFire, FaReddit, FaUserFriends, FaQuestionCircle, FaNewspaper, FaBriefcase, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaFire, FaUserFriends, FaQuestionCircle, FaNewspaper, FaBriefcase, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 const SideBar: React.FC = () => {
