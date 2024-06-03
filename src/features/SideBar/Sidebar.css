@@ -1,0 +1,24 @@
+/* src/components/Sidebar.css */
+.Sidebar {
+    /* Add scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.3);
+  }
+  
+.Sidebar::-webkit-scrollbar {
+    width: 8px; /* Adjust the width as needed */
+}
+  
+.Sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3); /* Track color */
+}
+  
+.Sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Thumb color */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.Sidebar::-webkit-scrollbar-thumb:hover {
+background-color: rgba(255, 255, 255, 0.5); /* Thumb color on hover */
+}
+  
