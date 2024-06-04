@@ -1,4 +1,3 @@
-// src/components/PostCard.tsx
 import React from 'react';
 import { Post } from '../posts/postsSlice';
 import { FaArrowUp, FaArrowDown, FaCommentAlt } from 'react-icons/fa';
@@ -22,29 +21,31 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
           <span className="mx-2">•</span>
           <span>{new Date(post.created * 1000).toLocaleDateString()}</span>
         </div>
-        <h2 className="text-lg font-bold mb-2">{post.title}</h2>
-        <div className="mb-2 max-h-64 overflow-hidden">
-          {post.is_video ? (
+        <h3 className="text-[] font-bold mb-2">{post.title}</h3>
+
+        {post.is_video ? (
+          <div className="mb-2 max-h-64 overflow-hidden">
             <video controls className="w-full rounded-md max-h-64">
               <source src={post.video_url} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          ) : (
+          </div>
+        ) : post.thumbnail && post.thumbnail !== 'self' && post.thumbnail !== 'default' && post.thumbnail !== 'nsfw' ? (
+          <div className="mb-2 max-h-64 overflow-hidden">
             <img 
               src={post.thumbnail} 
               alt={post.title} 
               className="w-full rounded-md object-cover max-h-64" 
-              loading = 'lazy' 
-              />
-          )}
-        </div>
+              loading="lazy" 
+            />
+          </div>
+        ) : null}
 
         {/* Foot Section */}
         <div className="flex items-center text-gray-600 dark:text-gray-400 mb-2 gap-2">
           <FaCommentAlt className="mr-1" />
           <span>{post.num_comments} comments</span>
-          {/**Foot Section */}
-          <div className="flex gap-2 items-center justify-center p-2rounded-t-md md:rounded-l-md md:rounded-tr-none md:rounded-br-none">
+          <div className="flex gap-2 items-center justify-center p-2 rounded-t-md md:rounded-l-md md:rounded-tr-none md:rounded-br-none">
             <button className="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500">
                 <FaArrowDown />
             </button>
@@ -53,18 +54,16 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
                 <FaArrowUp />
             </button>
           </div>
-
         </div>
-        {/** Read More */}
+
+        {/* Read More */}
         <div className='flex items-center justify-between'>
           <a href={post.url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline">
             Read more
           </a>
-          <ShareButton urlToCopy = {post.url} />
+          <ShareButton urlToCopy={post.url} />
         </div>
       </div>
-
-
     </div>
   );
 };
