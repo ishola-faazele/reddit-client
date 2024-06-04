@@ -1,19 +1,41 @@
-import React from 'react';
-import { FaHome, FaFire, FaUserFriends, FaQuestionCircle, FaNewspaper, FaBriefcase, FaEnvelope } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { FaReddit, FaHome, FaFire, FaUserFriends, FaQuestionCircle, FaNewspaper, FaBriefcase, FaEnvelope } from 'react-icons/fa';
+import { Link,  } from 'react-router-dom';
+import Modal from './Modal.tsx';
 import './Sidebar.css';
-const SideBar: React.FC = () => {
+
+const Sidebar: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [externalLink, setExternalLink] = useState('');
+  // const history = useHistory();
+
+  const handleExternalLinks = (url: string) => {
+    setExternalLink(url);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setExternalLink('');
+  };
+
+  const handleConfirmModal = () => {
+    window.open(externalLink, '_blank');
+    setIsModalOpen(false);
+    setExternalLink('');
+  };
+
   return (
     <div className="Sidebar w-64 h-full bg-gray-800 text-white fixed top-0 left-0 flex flex-col">
       {/* Logo */}
-      {/* <div className="logo p-4 text-5xl flex items-center justify-start">
+      <div className="logo p-4 text-2xl flex items-center justify-center">
         <Link to="/">
           <FaReddit />
         </Link>
-      </div> */}
+      </div>
 
       {/* Navigation */}
-      <nav className="flex flex-col p-4 overflow-y-auto"> {/* Add overflow-y-auto for scrolling */}
+      <nav className="flex flex-col p-4 overflow-y-auto flex-1"> {/* Add flex-1 for proper scrolling */}
         {/* Home */}
         <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
           <FaHome className="mr-2" />
@@ -37,30 +59,30 @@ const SideBar: React.FC = () => {
 
         {/* Reddit Links */}
         <div className="flex flex-col text-sm">
-          <Link to="https://www.redditinc.com/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <a onClick={() => handleExternalLinks('https://www.redditinc.com/')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             <FaNewspaper className="mr-2" />
             About Reddit
-          </Link>
-          <Link to="https://accounts.reddit.com/adsregister?utm_source=web3x_consumer&utm_name=left_nav_cta" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          </a>
+          <a onClick={() => handleExternalLinks('https://accounts.reddit.com/adsregister?utm_source=web3x_consumer&utm_name=left_nav_cta')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             <FaBriefcase className="mr-2" />
             Advertise
-          </Link>
-          <Link to="https://www.reddithelp.com/"  target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          </a>
+          <a onClick={() => handleExternalLinks('https://www.reddithelp.com/')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             <FaQuestionCircle className="mr-2" />
             Help
-          </Link>
-          <Link to="https://redditblog.com/"  target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          </a>
+          <a onClick={() => handleExternalLinks('https://redditblog.com/')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             <FaEnvelope className="mr-2" />
             Blog
-          </Link>
-          <Link to="https://www.redditinc.com/careers" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          </a>
+          <a onClick={() => handleExternalLinks('https://www.redditinc.com/careers')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             <FaBriefcase className="mr-2" />
             Careers
-          </Link>
-          <Link to="https://www.redditinc.com/press" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          </a>
+          <a onClick={() => handleExternalLinks('https://www.redditinc.com/press')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             <FaNewspaper className="mr-2" />
             Press
-          </Link>
+          </a>
         </div>
 
         {/* Divider */}
@@ -68,15 +90,15 @@ const SideBar: React.FC = () => {
 
         {/* Reddit Features */}
         <div className="flex flex-col text-sm">
-          <Link to="https://www.reddit.com/best/communities/1/"  target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <a onClick={() => handleExternalLinks('https://www.reddit.com/best/communities/1/')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             Communities
-          </Link>
-          <Link to="https://www.reddit.com/posts/2024/global/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          </a>
+          <a onClick={() => handleExternalLinks('https://www.reddit.com/posts/2024/global/')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             Best of Reddit
-          </Link>
-          <Link to="https://www.reddit.com/topics/a-1/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          </a>
+          <a onClick={() => handleExternalLinks('https://www.reddit.com/topics/a-1/')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             Topics
-          </Link>
+          </a>
         </div>
 
         {/* Divider */}
@@ -84,26 +106,29 @@ const SideBar: React.FC = () => {
 
         {/* Reddit Policies */}
         <div className="flex flex-col text-sm">
-          <Link to="https://www.redditinc.com/policies/content-policy" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <a onClick={() => handleExternalLinks('https://www.redditinc.com/policies/content-policy')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             Content Policy
-          </Link>
-          <Link to="https://www.reddit.com/policies/privacy-policy"  target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          </a>
+          <a onClick={() => handleExternalLinks('https://www.reddit.com/policies/privacy-policy')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             Privacy Policy
-          </Link>
-          <Link to="https://www.redditinc.com/policies/user-agreement" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          </a>
+          <a onClick={() => handleExternalLinks('https://www.redditinc.com/policies/user-agreement')} className="flex items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
             User Agreement
-          </Link>
+          </a>
         </div>
+      </nav>
+
       {/* Footer */}
-      <div className="mt-auto p-2  text-sm"> {/* Adjusted padding-bottom */}
+      <div className="p-4 text-sm">
         <a href="https://redditinc.com" target="_blank" rel="noopener noreferrer" className="no-underline text-tone-2">
           Reddit, Inc. © 2024. All rights reserved.
         </a>
       </div>
-      </nav>
 
+      {/* Modal */}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} onConfirm={handleConfirmModal} />
     </div>
   );
 };
 
-export default SideBar;
+export default Sidebar;
