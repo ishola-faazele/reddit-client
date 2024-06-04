@@ -37,27 +37,27 @@ const SideBar: React.FC = () => {
 
         {/* Reddit Links */}
         <div className="flex flex-col text-sm">
-          <Link to="https://www.redditinc.com/" className="flex items-center p-2 hover:bg-gray-700 rounded" target="_blank" rel="noopener noreferrer">
+          <Link to="https://www.redditinc.com/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             <FaNewspaper className="mr-2" />
             About Reddit
           </Link>
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://accounts.reddit.com/adsregister?utm_source=web3x_consumer&utm_name=left_nav_cta" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             <FaBriefcase className="mr-2" />
             Advertise
           </Link>
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://www.reddithelp.com/"  target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             <FaQuestionCircle className="mr-2" />
             Help
           </Link>
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://redditblog.com/"  target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             <FaEnvelope className="mr-2" />
             Blog
           </Link>
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://www.redditinc.com/careers" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             <FaBriefcase className="mr-2" />
             Careers
           </Link>
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://www.redditinc.com/press" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             <FaNewspaper className="mr-2" />
             Press
           </Link>
@@ -68,13 +68,13 @@ const SideBar: React.FC = () => {
 
         {/* Reddit Features */}
         <div className="flex flex-col text-sm">
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://www.reddit.com/best/communities/1/"  target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             Communities
           </Link>
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://www.reddit.com/posts/2024/global/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             Best of Reddit
           </Link>
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://www.reddit.com/topics/a-1/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             Topics
           </Link>
         </div>
@@ -84,13 +84,13 @@ const SideBar: React.FC = () => {
 
         {/* Reddit Policies */}
         <div className="flex flex-col text-sm">
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://www.redditinc.com/policies/content-policy" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             Content Policy
           </Link>
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://www.reddit.com/policies/privacy-policy"  target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             Privacy Policy
           </Link>
-          <Link to="/" className="flex items-center p-2 hover:bg-gray-700 rounded">
+          <Link to="https://www.redditinc.com/policies/user-agreement" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 hover:bg-gray-700 rounded">
             User Agreement
           </Link>
         </div>
