@@ -2,7 +2,7 @@ import React from 'react';
 import { Post } from '../posts/postsSlice';
 import { FaArrowUp, FaArrowDown, FaCommentAlt } from 'react-icons/fa';
 import ShareButton from '../ShareButton/ShareBtn';
-
+import { Link } from 'react-router-dom';
 interface PostCardProps {
   post: Post;
 }
@@ -10,7 +10,7 @@ interface PostCardProps {
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
     <div 
-      className="flex flex-col md:flex-row p-4 bg-white rounded-lg shadow-md mb-4 w-full max-w-2xl mx-auto dark:bg-gray-800 dark:text-white">
+      className="flex flex-col md:flex-row p-4 bg-white rounded-lg shadow-md mb-4 w-full max-w-xl mx-auto dark:bg-gray-800 dark:text-white">
 
       {/* Post Content */}
       <div className="flex-grow p-4">
@@ -58,9 +58,9 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
         {/* Read More */}
         <div className='flex items-center justify-between'>
-          <a href={post.url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline">
+          <Link to={post.url} rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline">
             Read more
-          </a>
+          </Link>
           <ShareButton urlToCopy={post.url} />
         </div>
       </div>

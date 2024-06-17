@@ -12,6 +12,7 @@ const NavBar: React.FC = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
   return (
     <div className="NavBar flex flex-wrap justify-between items-center mb-4 sm:mb-8 px-1 xs:px-2 md:px-4 relative">
 
@@ -34,11 +35,11 @@ const NavBar: React.FC = () => {
       {/**Login and Dark theme */}
       <div className='flex items-center xs:gap-4 gap-2'>
         <div className="login cursor-pointer bg-black text-white p-2 rounded-full">Log In</div>
-        {/* <div className="more-div cursor-pointer text-3xl"><IoIosMore /></div> */}
         <ThemeToggle />
       </div>
       
-      <div id= 'side-bar-div' className={`${sidebarOpen ? 'block' : 'hidden'} absolute z-50 top- left-0`}>
+      {/** Sidebar */}
+      <div id= 'side-bar-div' className={`${sidebarOpen ? 'block' : 'hidden'} absolute z-50 top-8 left-0`}>
         <SideBar />
       </div>
     </div>

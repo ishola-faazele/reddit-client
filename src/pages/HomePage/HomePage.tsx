@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
   const dispatch = useAppDispatch();
   const posts = useAppSelector((state: RootState) => state.posts.posts);
   const postStatus = useAppSelector((state: RootState) => state.posts.status);
-
+  const postFetchStatus = "flex justify-center items-center text-2xl font-bold capitalize";
   useEffect(() => {
     if (postStatus === 'idle') {
       dispatch(fetchPosts('all'));
@@ -22,7 +22,7 @@ const HomePage: React.FC = () => {
     <div className="home-page">
       <NavBar />
 
-      {postStatus === 'loading' && <p>Loading...</p>}
+      {postStatus === 'loading' && <h2 className={`${postFetchStatus}`}>Loading...</h2>}
       {postStatus === 'succeeded' && (
         <div className="post-list flex flex-col">
           {posts.map((post) => (
@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
           ))}
         </div>
       )}
-      {postStatus === 'failed' && <p>Error fetching posts</p>}
+      {postStatus === 'failed' && <h2 className={`${postFetchStatus}`}>Error fetching posts</h2>}
     </div>
   );
 };
