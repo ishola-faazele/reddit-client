@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store.ts';
-import { RootState } from "../../store.ts";
-import { fetchPosts } from '../../features/posts/postsSlice';
+import { useAppDispatch, useAppSelector } from '../../store/store.ts';
+import { RootState } from "../../store/store.ts";
+import { fetchPosts } from '../../features/PostCard/postsSlice.ts';
 import './HomePage.css';
 import PostCard from '../../features/PostCard/PostCard';
 import NavBar from '../../features/NavBar/NavBar';

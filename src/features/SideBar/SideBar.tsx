@@ -26,7 +26,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="Sidebar w-64 h-full mt-8 left-4 bg-gray-800 text-white fixed flex flex-col">
+    <div className="Sidebar w-full sm:w-80 h-full mt-12 left-1 bg-gray-800 text-white fixed flex flex-col ">
       {/* Logo */}
       <div className="logo p-4 text-2xl flex items-center justify-center">
         <Link to="/">

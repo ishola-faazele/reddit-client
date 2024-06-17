@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post } from '../posts/postsSlice';
+import { Post } from './postsSlice';
 import { FaArrowUp, FaArrowDown, FaCommentAlt } from 'react-icons/fa';
 import ShareButton from '../ShareButton/ShareBtn';
 import { Link } from 'react-router-dom';

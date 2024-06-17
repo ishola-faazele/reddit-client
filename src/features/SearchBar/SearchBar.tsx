@@ -1,7 +1,7 @@
 // src/components/SearchBar.tsx
 import React, { useState, useEffect, useRef } from 'react';
-import { useAppDispatch } from '../../store';
-import { fetchPosts } from '../posts/postsSlice';
+import { useAppDispatch } from '../../store/store';
+import { fetchPosts } from '../PostCard/postsSlice';
 import { FaSearch } from 'react-icons/fa';
 
 const SearchBar: React.FC = () => {
